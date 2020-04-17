@@ -14,3 +14,16 @@ after_success:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # Push to Docker Hub
     - docker push coanjos/roleta-russa-api
+
+deploy:
+    edge: true
+    provider: elasticbeanstalk
+    region: sa-east-1
+    app: roleta-russa-api
+    env: RoletaRussaApi-env
+    bucket_name: elasticbeanstalk-sa-east-1-491740408545
+    bucket_path: roleta-russa-api
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
