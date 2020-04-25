@@ -6,7 +6,7 @@ before_install:
     - docker build -t coanjos/roleta-russa-api-test -f dev.Dockerfile .
 
 script:
-    - docker run -e MONGODB_URL=$MONGODB_URL -e JWT_SECRET=$JWT_SECRET coanjos/roleta-russa-api-test npm run test
+    - docker run -e MONGODB_TEST=$MONGODB_URL -e JWT_SECRET=$JWT_SECRET coanjos/roleta-russa-api-test npm run test
 
 after_success:
     - docker build -t coanjos/roleta-russa-api .

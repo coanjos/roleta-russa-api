@@ -9,8 +9,8 @@ beforeEach(setupDatabase)
 
 test('Deve criar novo usuário', async () => {
     const response = await request(app).post(routePrefix).send({
-        nome: 'Caio',
-        email: 'coa.anjos@gmail.com',
+        nome: 'Test',
+        email: 'test@gmail.com',
         senha: '123456789'
     }).expect(201)
 
