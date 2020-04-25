@@ -19,7 +19,7 @@ test('Deve criar novo usuário', async () => {
     expect(user).not.toBeNull()
     expect(response.body).toMatchObject({
         user: {
-            nome: 'Caio'
+            nome: 'Test'
         },
         token: user.tokens[0].token
     })
