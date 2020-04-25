@@ -86,7 +86,7 @@ const upload = multer({
 })
 
 router.post(`${routePrefix}/:id/photo`, auth, upload.single('imagem'), async (req, res) => {
-    const buffer = await sharp(req.file.buffer).png().toBuffer()
+    const buffer = await sharp(req.file.buffer).resize({ width: 300 }).png().toBuffer()
     const star = await Star.findOne({ _id: req.params.id })
 
     if(!star){
